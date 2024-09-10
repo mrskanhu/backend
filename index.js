@@ -16,25 +16,25 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
-const corsOptions = {
-    origin:'http://localhost:5173',
-    credentials:true
-}
 
+// CORS configuration to allow all origins
+const corsOptions = {
+    origin: '*',  // Allow all origins
+    credentials: true,  // Allow cookies and credentials to be passed
+};
+
+// Use CORS middleware with the above configuration
 app.use(cors(corsOptions));
 
-const PORT = process.env.PORT || 3000;
-
-
-// api's
+// API routes
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/company", companyRoute);
 app.use("/api/v1/job", jobRoute);
 app.use("/api/v1/application", applicationRoute);
 
+const PORT = process.env.PORT || 3000;
 
-
-app.listen(PORT,()=>{
+app.listen(PORT, () => {
     connectDB();
     console.log(`Server running at port ${PORT}`);
-})
+});
