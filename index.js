@@ -17,13 +17,14 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 
-// CORS configuration to allow all origins
+// Updated CORS configuration to allow all origins
 const corsOptions = {
-    origin: '*',  // Allow all origins
-    credentials: true,  // Allow cookies and credentials to be passed
+    origin: ['http://localhost:5173', 'https://endearing-medovik-320f80.netlify.app'], // Add multiple origins here
+    credentials: true, // Allow credentials like cookies to be passed
+    optionsSuccessStatus: 200, // Some browsers (e.g., Safari) need this for successful CORS requests
 };
 
-// Use CORS middleware with the above configuration
+// Use CORS middleware
 app.use(cors(corsOptions));
 
 // API routes
