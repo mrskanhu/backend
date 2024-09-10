@@ -19,7 +19,7 @@ app.use(cookieParser());
 
 // Updated CORS configuration to allow all origins
 const corsOptions = {
-    origin: ['http://localhost:5173', 'https://endearing-medovik-320f80.netlify.app'], // Add multiple origins here
+    origin: ['http://localhost:5173', 'https://splendid-cactus-3ab574.netlify.app/', 'https://endearing-medovik-320f80.netlify.app', '*'], // Add multiple origins here
     credentials: true, // Allow credentials like cookies to be passed
     optionsSuccessStatus: 200, // Some browsers (e.g., Safari) need this for successful CORS requests
 };
